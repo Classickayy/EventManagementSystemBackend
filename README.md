@@ -83,6 +83,18 @@ The server will run on `http://localhost:3000`.
   endLine: 6
   ```
 
+### API Images
+
+Include images or diagrams that illustrate the API architecture or flow. This can help in understanding how different components interact with each other.
+
+- **Get Events**: ![API Architecture](./Endpoint/getAllEvents.png)
+
+- **Create Event**: ![API Sequence Diagram](./Endpoint/createEvent.png)
+
+- **Register User**: ![API Sequence Diagram](./Endpoint/registerUser.png)
+
+- **Login User**: ![API Sequence Diagram](./Endpoint/loginUser.png)
+
 ### Project Structure
 
 - `server.js`: Entry point of the application.
