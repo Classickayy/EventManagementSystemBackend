@@ -1,0 +1,10 @@
+/node_modules/
+/dist/
+/test/
+/types/
+/config/
+/scripts/
+/public/
+.venv/
+.env/
+.env
