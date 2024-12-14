@@ -1,131 +1,111 @@
-# Backend for Campus Event Management Hub
+# Campus Event Management System - Backend
 
-This is the backend service for the Campus Event Management Hub, a platform designed to manage and discover campus events. The backend is built using Node.js and Express, and it connects to a PostgreSQL database.
+This is the backend service for the Campus Event Management System. It provides RESTful API endpoints for managing events, user authentication, and more.
 
-## Features
+## 🛠 Tech Stack
 
-- **Event Management**: Create, retrieve, and manage events.
-- **User Authentication**: Register and login users with role-based access.
-- **Database Integration**: Uses PostgreSQL for data storage.
+### Backend
+- **Node.js** with **Express**: For building the server and handling HTTP requests.
+- **PostgreSQL**: As the database for storing user and event data.
+- **bcryptjs**: For hashing passwords securely.
+- **CORS**: To enable cross-origin resource sharing.
 
-## Getting Started
+## 📦 Installation
 
 ### Prerequisites
+- **Node.js** (v14 or higher)
+- **PostgreSQL** database
+- **npm** or **yarn** package manager
 
-- Node.js (v14 or later)
-- PostgreSQL
+### Setup Instructions
 
-### Installation
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/eventix-backend.git
+   ```
 
-1. Clone the repository:
+2. **Navigate to the backend directory**:
+   ```bash
+   cd eventix-backend
+   ```
 
-   ````bash
-   git clone <repository-url>   ```
+3. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-   ````
+4. **Set up the database**:
+   - Ensure PostgreSQL is running.
+   - Create a database named `event_management_site`.
+   - Update the connection string in `config/db.js` with your database credentials.
 
-2. Navigate to the backend directory:
+5. **Run the development server**:
+   ```bash
+   npm start
+   ```
 
-   ````bash
-   cd Backend   ```
+## 🗄️ Database Schema
 
-   ````
+### Users Table
+- `id` (Primary Key)
+- `name`
+- `email`
+- `password` (hashed)
+- `role` (admin/user)
+- `preferences` (array)
 
-3. Install the dependencies:
-   ````bash
-   npm install   ```
-   ````
+### Events Table
+- `id` (Primary Key)
+- `name`
+- `description`
+- `location`
+- `event_date`
+- `event_time`
+- `type`
+- `capacity`
+- `available_seats`
+- `created_by`
 
-### Configuration
 
-1. Set up your PostgreSQL database and update the connection string in `Backend/config/db.js`:
+## 🔐 API Endpoints
 
-   ````javascript:Backend/config/db.js
-   startLine: 3
-   endLine: 5   ```
+### Authentication
+- **POST** `/api/auth/login` - User login
+- **POST** `/api/auth/register` - User registration
 
-   ````
+### Events
+- **GET** `/api/events/getEvents` - Get all events
+- **POST** `/api/events/createEvent` - Create new event
 
-2. Create a `.env` file in the `Backend` directory and add your environment variables:
-   ````plaintext
-   DB_CONNECTION_STRING=your_database_connection_string   ```
-   ````
 
-### Running the Server
+## 🛠 Screenshots
 
-To start the server, run:
+### Login Endpoint
+![Login Endpoint](./Endpoint/LoginUser.png)
 
-```bash
-npm start
-```
+### Signup Endpoint
+![Signup Endpoint](./Endpoint/RegisterUser.png)
 
-The server will run on `http://localhost:3000`.
+### Event Creation
+![Event Creation](./Endpoint/CreateEvent.png)
 
-### API Endpoints
 
-- **Events**
+### Get Events
+![Get Events Data](./Endpoint/GetAllEvents.png)
 
-  - `GET /api/events/getEvents`: Retrieve all events.
-  - `POST /api/events/createEvent`: Create a new event.
 
-  ```javascript:Backend/routes/eventRoutes.js
-  startLine: 5
-  endLine: 6
-  ```
 
-- **Authentication**
 
-  - `POST /api/auth/register`: Register a new user.
-  - `POST /api/auth/login`: Login a user.
+## 👥 Contributing
 
-  ```javascript:Backend/routes/authRoutes.js
-  startLine: 5
-  endLine: 6
-  ```
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### API Images
+## 🙏 Acknowledgments
 
-Include images or diagrams that illustrate the API architecture or flow. This can help in understanding how different components interact with each other.
-
-- **Get Events**: ![API Architecture](./Endpoint/getAllEvents.png)
-
-- **Create Event**: ![API Sequence Diagram](./Endpoint/createEvent.png)
-
-- **Register User**: ![API Sequence Diagram](./Endpoint/registerUser.png)
-
-- **Login User**: ![API Sequence Diagram](./Endpoint/loginUser.png)
-
-### Project Structure
-
-- `server.js`: Entry point of the application.
-- `routes/`: Contains route definitions for events and authentication.
-- `controllers/`: Contains logic for handling requests.
-- `config/`: Database configuration.
-
-### Dependencies
-
-- **Express**: Web framework for Node.js.
-- **Nodemon**: Utility for automatically restarting the server.
-- **pg**: PostgreSQL client for Node.js.
-- **Cors**: Middleware for enabling CORS.
-
-```json:Backend/package.json
-startLine: 13
-endLine: 18
-```
-
-### Development
-
-To run the server in development mode with live-reloading, use:
-
-```bash
-npm run dev
-```
-
-### Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any changes.
-
-### License
-
-This project is licensed under the ISC License.
+- Node.js and Express for the server framework
+- PostgreSQL for the database
+- bcryptjs for password hashing
